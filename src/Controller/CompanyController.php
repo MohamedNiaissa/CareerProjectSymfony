@@ -13,12 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class CompanyController extends AbstractController
 {
-    public function companyPage()
-    {
-        return $this->render('company/company.html.twig');
-    }
-
-    #[Route('/company', name: 'company')]
+  
+    #[Route('/companies/new', name: 'company')]
     public function newCompany(Request $request,CompanyRepository $companyRepository): Response
     {
         // creates a company object and initializes some data for this example
