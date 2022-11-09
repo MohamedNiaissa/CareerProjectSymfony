@@ -23,3 +23,7 @@ Initialize basics README.md, HISTORY.md, AUTHORS.md
 - Add Company Form
 - Company page added
 - Data is inserted into the database
+
+# v.0.0.5
+Implement basic command instruction to show a list of both pending and unmatched jobs
+- {Add} `/src/Command/CreateJobsCommand.php`
