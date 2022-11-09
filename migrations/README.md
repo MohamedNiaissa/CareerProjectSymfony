@@ -15,3 +15,10 @@ $ doctrine:migrations:version                [version] Manually add and delete m
 $ doctrine:migrations:sync-metadata-storage  [sync-metadata-storage] Ensures that the metadata storage is at the latest version.
 $ doctrine:migrations:list                   [list-migrations] Display a list of all available migrations and their status.
 ```
+
+## Validation
+
+```bash
+$ symfony console doctrine:schema:update
+$ symfony console doctrine:schema:validate
+```
