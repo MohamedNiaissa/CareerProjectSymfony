@@ -72,3 +72,6 @@ Implement Job entity, controller and template
 - {Add} Create Job Template `/templates/job/job.html.twig`
 - {Add} Added route `/` to show a list of jobs, logic is not implemented.
 - {Add} Added route `/new` to create a job, logic is not complete.
+
+# v.0.0.11
+- can get the data of a company from the db
