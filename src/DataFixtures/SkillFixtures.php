@@ -8,7 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Skill;
 
-class SkillsFixtures extends Fixture
+class SkillFixtures extends Fixture
 {
 	private Generator $faker;
 
