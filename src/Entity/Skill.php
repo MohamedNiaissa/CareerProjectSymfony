@@ -11,21 +11,14 @@ class Skill
 	#[ORM\Id]
 	#[ORM\GeneratedValue]
 	#[ORM\Column]
-	private ?int $idskill = null;
+	private ?int $id = null;
 
 	#[ORM\Column(length: 255)]
 	private ?string $name = null;
 
 	public function getId(): ?int
 	{
-		return $this->idskill;
-	}
-
-	public function setIdskill(int $idskill): self
-	{
-		$this->idskill = $idskill;
-
-		return $this;
+		return $this->id;
 	}
 
 	public function getName(): ?string
