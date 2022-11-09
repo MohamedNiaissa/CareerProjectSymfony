@@ -75,3 +75,6 @@ Implement Job entity, controller and template
 
 # v.0.0.11
 - can get the data of a company from the db
+
+# v.0.0.12
+- Fix migrations duplicates.
