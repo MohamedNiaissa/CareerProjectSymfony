@@ -15,3 +15,8 @@ Initialize basics README.md, HISTORY.md, AUTHORS.md
 - {Update} `/README.md`
 - {Update} `/.gitignore`
 - {Remove} Template database column in `/migrations`
+
+# v.0.0.6
+Create Mailer service instead of a controller Mailer.
+- {Add} Basic templating `/src/Service/Mailer.php`
+- {Add} [dev] setup explaination `/src/Service/README.md`
