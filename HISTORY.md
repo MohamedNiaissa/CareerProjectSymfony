@@ -15,3 +15,7 @@ Initialize basics README.md, HISTORY.md, AUTHORS.md
 - {Update} `/README.md`
 - {Update} `/.gitignore`
 - {Remove} Template database column in `/migrations`
+
+# v.0.0.5
+Implement basic command instruction to show a list of both pending and unmatched jobs
+- {Add} `/src/Command/CreateJobsCommand.php`
