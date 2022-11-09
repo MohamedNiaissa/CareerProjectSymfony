@@ -52,3 +52,10 @@ Implement Skill entity
 - {Add} Create Candidate Form
 - {Add} Generate new migration version `Version20221109140935`
 - {Add} Create candidate page .twig
+
+# v.0.0.9
+Initialize and create Service, tests folders, added temporary Calc service to test phpunit
+- {Add} `/tests/Service`
+- {Add} `/src/Service/CalcService`
+- {Add} `/tests/Service/CalcServiceTest.php`
+- {Add} Symfony/test-pack packages for testing
