@@ -44,3 +44,11 @@ Implement Skill entity
 
 # v.0.0.7
 - {Update} `./docker-compose.yml` to mysql configuration
+
+# v.0.0.8
+- {Add} Create Candidate Entity
+- {Add} Create Candidate fixtures
+- {Add} Create Candidate Controller
+- {Add} Create Candidate Form
+- {Add} Generate new migration version `Version20221109140935`
+- {Add} Create candidate page .twig
