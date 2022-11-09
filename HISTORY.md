@@ -64,3 +64,11 @@ Initialize and create Service, tests folders, added temporary Calc service to te
 Fix migrations conflict
 - {Change} id -> idcandidate
 - {Change} id -> idcompany
+
+# v.0.0.10
+Implement Job entity, controller and template
+- {Add} Create Job Entity `/src/Entity/Job.php`
+- {Add} Create Job Controller `/src/Controller/JobController.php`
+- {Add} Create Job Template `/templates/job/job.html.twig`
+- {Add} Added route `/` to show a list of jobs, logic is not implemented.
+- {Add} Added route `/new` to create a job, logic is not complete.
