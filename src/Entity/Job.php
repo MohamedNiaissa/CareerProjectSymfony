@@ -12,7 +12,7 @@ class Job
 	#[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $idjob = null;
+    private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'jobs')]
     #[ORM\JoinColumn(nullable: false)]
@@ -27,18 +27,6 @@ class Job
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getIdjob(): ?int
-    {
-        return $this->idjob;
-    }
-
-    public function setIdjob(int $idjob): self
-    {
-        $this->idjob = $idjob;
-
-        return $this;
     }
 
     public function getIdcompany(): ?Company

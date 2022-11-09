@@ -47,7 +47,7 @@ class SkillRepository extends ServiceEntityRepository
 //        return $this->createQueryBuilder('s')
 //            ->andWhere('s.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('s.idskill', 'ASC')
+//            ->orderBy('s.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()

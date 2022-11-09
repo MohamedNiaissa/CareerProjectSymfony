@@ -14,4 +14,10 @@ $ doctrine:migrations:up-to-date             [up-to-date] Tells you if your sche
 $ doctrine:migrations:version                [version] Manually add and delete migration versions from the version table.
 $ doctrine:migrations:sync-metadata-storage  [sync-metadata-storage] Ensures that the metadata storage is at the latest version.
 $ doctrine:migrations:list                   [list-migrations] Display a list of all available migrations and their status.
+
+## Validation
+
+```bash
+$ symfony console doctrine:schema:update
+$ symfony console doctrine:schema:validate
 ```

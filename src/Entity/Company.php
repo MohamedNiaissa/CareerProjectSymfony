@@ -13,7 +13,7 @@ class Company
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $idcompany = null;
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -30,14 +30,18 @@ class Company
     #[ORM\OneToMany(mappedBy: 'idcompany', targetEntity: Job::class, orphanRemoval: true)]
     private Collection $jobs;
 
+	#[ORM\OneToOne(mappedBy: 'idcompany', targetEntity: User::class)]
+    private Collection $user;
+
     public function __construct()
     {
         $this->jobs = new ArrayCollection();
+        $this->user = new Collection();
     }
 
     public function getId(): ?int
     {
-        return $this->idcompany;
+        return $this->id;
     }
 
     public function getName(): ?string
@@ -116,5 +120,13 @@ class Company
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
     }
 }
