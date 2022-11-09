@@ -47,7 +47,7 @@ class CandidateRepository extends ServiceEntityRepository
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
+//            ->orderBy('c.idcandidate', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()

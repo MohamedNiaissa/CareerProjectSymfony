@@ -12,7 +12,7 @@ class Candidate
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $idcandidate = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -28,7 +28,7 @@ class Candidate
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idcandidate;
     }
 
     public function getName(): ?string
