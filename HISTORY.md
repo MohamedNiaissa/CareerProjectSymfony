@@ -15,3 +15,6 @@ Initialize basics README.md, HISTORY.md, AUTHORS.md
 - {Update} `/README.md`
 - {Update} `/.gitignore`
 - {Remove} Template database column in `/migrations`
+
+# v.0.0.4
+- Bootstrap extension added

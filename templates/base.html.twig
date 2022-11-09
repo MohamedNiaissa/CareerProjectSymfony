@@ -17,15 +17,16 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
-        <div class="container">
-            {{ component('navbar')}}
+    <body>            
+        {{ component('navbar')}}
 
-        {% block body %}{% endblock %}
+        <div class="container">
+
+            {% block body %}{% endblock %}
 
         </div>
-        <footer style = "position:absolute; bottom:0"> 
-            {{ component('footer')}}
-        </footer>
+
+        {{ component('footer')}}
+
     </body>
 </html>
