@@ -15,3 +15,10 @@ Initialize basics README.md, HISTORY.md, AUTHORS.md
 - {Update} `/README.md`
 - {Update} `/.gitignore`
 - {Remove} Template database column in `/migrations`
+
+# v.0.0.9
+Initialize and create Service, tests folders, added temporary Calc service to test phpunit
+- {Add} `/tests/Service`
+- {Add} `/src/Service/CalcService`
+- {Add} `/tests/Service/CalcServiceTest.php`
+- {Add} Symfony/test-pack packages for testing
