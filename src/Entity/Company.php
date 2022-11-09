@@ -16,7 +16,7 @@ class Company
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(nullable: true)]
+    #[ORM\Column(length: 900, nullable: true)]
     private ?string $logo = null;
 
     #[ORM\Column(length: 255, nullable: true)]
