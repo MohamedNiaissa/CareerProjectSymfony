@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CandidateController extends AbstractController
 {
-    #[Route('/candidate', name: 'app_candidate')]
+    #[Route('/candidates', name: 'app_candidate')]
 
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
