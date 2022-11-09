@@ -6,10 +6,10 @@ use App\Entity\Company;
 use App\Form\Type\CompanyType;
 use App\Repository\CompanyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-use Symfony\Component\HttpFoundation\Request;
 
 class CompanyController extends AbstractController
 {
@@ -27,7 +27,6 @@ class CompanyController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $companyRepository->save($company, true);
-
         }
         $allCompanies = $companyRepository->findAll();
 

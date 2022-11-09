@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Company;
+use App\Entity\Candidate;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Companies>
+ * @extends ServiceEntityRepository<Candidate>
  *
- * @method Companies|null find($id, $lockMode = null, $lockVersion = null)
- * @method Companies|null findOneBy(array $criteria, array $orderBy = null)
- * @method Companies[]    findAll()
- * @method Companies[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Candidate|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Candidate|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Candidate[]    findAll()
+ * @method Candidate[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CompanyRepository extends ServiceEntityRepository
+class CandidateRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Company::class);
+        parent::__construct($registry, Candidate::class);
     }
 
-    public function save(Company $entity, bool $flush = false): void
+    public function save(Candidate $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class CompanyRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Company $entity, bool $flush = false): void
+    public function remove(Candidate $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,21 +40,21 @@ class CompanyRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Companies[] Returns an array of Companies objects
+//     * @return Candidate[] Returns an array of Candidate objects
 //     */
 //    public function findByExampleField($value): array
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('c.idcompany', 'ASC')
+//            ->orderBy('c.idcandidate', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Companies
+//    public function findOneBySomeField($value): ?Candidate
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
