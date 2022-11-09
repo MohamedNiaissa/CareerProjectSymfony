@@ -16,7 +16,7 @@ class Mailer
 	}
 
 	//! Pass the candidate entity
-	public function sendAcceptedOffer(/* Candidate $candidate */)
+	public function sendEmail(/* Candidate $candidate */)
 	{	
 		$email = (new TemplatedEmail())
 			->from('example@example.com', 'Website name')
