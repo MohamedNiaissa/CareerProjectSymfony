@@ -7,6 +7,7 @@ Initialize and create company controllers, entity..
 - {Add} Create company entity with repository `/src/Entity/Company.php`
 - {Add} Create company controller `/src/Controller/CompanyController.php`
 - {Add} Create company route to send a form
+- {Add} Generate new migrations version `Version20221108162456`
 
 # v.0.0.3-beta
 Initialize basics README.md, HISTORY.md, AUTHORS.md
@@ -32,3 +33,11 @@ Implement basic command instruction to show a list of both pending and unmatched
 Create Mailer service instead of a controller Mailer.
 - {Add} Basic templating `/src/Service/Mailer.php`
 - {Add} [dev] setup explaination `/src/Service/README.md`
+
+# v.0.0.7-beta
+Implement Skill entity
+- {Add} Create Skill entity
+- {Add} Create Skill fixtures
+- {Add} README.md in folder `/src/DataFixtures`
+- {Add} Generate new migrations version `Version20221109085905`
+- {Update} `./composer.json`
