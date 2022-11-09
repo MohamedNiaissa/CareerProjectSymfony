@@ -59,3 +59,8 @@ Initialize and create Service, tests folders, added temporary Calc service to te
 - {Add} `/src/Service/CalcService`
 - {Add} `/tests/Service/CalcServiceTest.php`
 - {Add} Symfony/test-pack packages for testing
+
+# v.0.0.10-beta
+Fix migrations conflict
+- {Change} id -> idcandidate
+- {Change} id -> idcompany

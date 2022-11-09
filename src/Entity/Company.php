@@ -11,7 +11,7 @@ class Company
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
+    private ?int $idcompany = null;
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
@@ -27,7 +27,7 @@ class Company
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idcompany;
     }
 
     public function getName(): ?string

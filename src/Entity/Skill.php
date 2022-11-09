@@ -18,11 +18,6 @@ class Skill
 
 	public function getId(): ?int
 	{
-		return $this->id;
-	}
-
-	public function getIdskill(): ?int
-	{
 		return $this->idskill;
 	}
 
