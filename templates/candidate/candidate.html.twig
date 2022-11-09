@@ -3,20 +3,33 @@
 {% block title %}Hello CandidateController!{% endblock %}
 
 {% block body %}
-    <div>
+    <body style="background-color: #d3D3D3">
+    <div style="text-align: center; margin-top: 15%; margin-bottom: 15%; ">
+        <h1 style="font-size: 35px; margin-bottom: 30px">Create Candidate</h1>
         {{ form_start(form) }}
-        {{ form_label(form.name) }}
-        {{ form_widget(form.name) }}
 
-        {{ form_label(form.age) }}
-        {{ form_widget(form.age) }}
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
 
-        {{ form_label(form.picture) }}
-        {{ form_widget(form.picture) }}
+        <div style="margin-top: 15px">
+            {{ form_label(form.age) }}
+            {{ form_widget(form.age) }}
+        </div>
 
-        {{ form_label(form.email) }}
-        {{ form_widget(form.email) }}
+        <div style="margin-top: 15px">
+            {{ form_label(form.picture) }}
+            {{ form_widget(form.picture) }}
+        </div>
+
+        <div style="margin-top: 15px">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+        </div>
+        <button style="margin-top: 15px" type="submit">Enregistrer</button>
     </div>
-    <button type="submit">Enregistrer</button>
-  {{ form_end(form) }}
+
+    {{ form_end(form) }}
+    </body>
 {% endblock %}

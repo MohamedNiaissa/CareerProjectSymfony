@@ -1,7 +1,37 @@
 {% extends 'base.html.twig' %}
 
 {%block body%}
-{{ form(form) }}
+<body style="background-color: #d3D3D3">
+
+    <div style="text-align: center; margin-top: 15%; margin-bottom: 15%;">
+        <h1 style="font-size: 35px; margin-bottom: 30px">Create Company</h1>
+        {{ form_start(form) }}
+        <div>
+            {{ form_label(form.name) }}
+            {{ form_widget(form.name) }}
+        </div>
+
+        <div style="margin-top: 15px ">
+            {{ form_label(form.logo) }}
+            {{ form_widget(form.logo) }}
+        </div>
+
+        <div style="margin-top: 15px">
+            {{ form_label(form.address) }}
+            {{ form_widget(form.address) }}
+        </div>
+
+        <div style="margin-top: 15px">
+            {{ form_label(form.category) }}
+            {{ form_widget(form.category) }}
+        </div>
+
+        <div style="margin-top: 15px">
+            {{ form_widget(form.save) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+</body>
 
 {%endblock%}
 
