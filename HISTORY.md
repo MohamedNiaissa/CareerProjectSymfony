@@ -41,3 +41,6 @@ Implement Skill entity
 - {Add} README.md in folder `/src/DataFixtures`
 - {Add} Generate new migrations version `Version20221109085905`
 - {Update} `./composer.json`
+
+# v.0.0.7
+- {Update} `./docker-compose.yml` to mysql configuration
