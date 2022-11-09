@@ -1,34 +1,21 @@
-version: '3.1'
+version: '3'
 
 services:
-  mysql:
-    image: mysql:8.0.31
-    command: --authentication-policy=sha256_password
+###> doctrine/doctrine-bundle ###
+  database:
+    image: postgres:${POSTGRES_VERSION:-14}-alpine
     environment:
-      MYSQL_DATABASE: "career-symfony"
-      MYSQL_USER: "rxijian"
-      MYSQL_PASSWORD: "Fl4IP81iXy1L1NrzCGqroXTDio66ttrGFunqaPXz"
-      MYSQL_ROOT_PASSWORD: "wS6nh9VeYp79Vd1RQueoKWkKYdlsLIBKbztGtTEE"
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
-    ports:
-      - '3306:3306'
-    expose:
-      - '3306'
+      POSTGRES_DB: ${POSTGRES_DB:-app}
+      # You should definitely change the password in production
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-!ChangeMe!}
+      POSTGRES_USER: ${POSTGRES_USER:-app}
     volumes:
-      - mysql-volume:/var/lib/mysql
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: pma
-    links:
-      - mysql
-    environment:
-      PMA_HOST: localhost
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-      MYSQL_ROOT_PASSWORD: "wS6nh9VeYp79Vd1RQueoKWkKYdlsLIBKbztGtTEE"
-    restart: always
-    ports:
-      - 8081:80
+      - db-data:/var/lib/postgresql/data:rw
+      # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+###< doctrine/doctrine-bundle ###
 
 volumes:
-  mysql-volume:
+###> doctrine/doctrine-bundle ###
+  db-data:
+###< doctrine/doctrine-bundle ###

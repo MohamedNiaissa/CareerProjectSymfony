@@ -34,11 +34,10 @@ Create Mailer service instead of a controller Mailer.
 - {Add} Basic templating `/src/Service/Mailer.php`
 - {Add} [dev] setup explaination `/src/Service/README.md`
 
-# v.0.0.7
+# v.0.0.7-beta
 Implement Skill entity
 - {Add} Create Skill entity
 - {Add} Create Skill fixtures
 - {Add} README.md in folder `/src/DataFixtures`
 - {Add} Generate new migrations version `Version20221109085905`
-- {Update} `./docker-compose.yml` to mysql configuration
 - {Update} `./composer.json`
