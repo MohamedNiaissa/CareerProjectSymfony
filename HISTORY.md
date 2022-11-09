@@ -45,6 +45,26 @@ Implement Skill entity
 # v.0.0.7
 - {Update} `./docker-compose.yml` to mysql configuration
 
+# v.0.0.8
+- {Add} Create Candidate Entity
+- {Add} Create Candidate fixtures
+- {Add} Create Candidate Controller
+- {Add} Create Candidate Form
+- {Add} Generate new migration version `Version20221109140935`
+- {Add} Create candidate page .twig
+
+# v.0.0.9
+Initialize and create Service, tests folders, added temporary Calc service to test phpunit
+- {Add} `/tests/Service`
+- {Add} `/src/Service/CalcService`
+- {Add} `/tests/Service/CalcServiceTest.php`
+- {Add} Symfony/test-pack packages for testing
+
+# v.0.0.10-beta
+Fix migrations conflict
+- {Change} id -> idcandidate
+- {Change} id -> idcompany
+
 # v.0.0.10
 Implement Job entity, controller and template
 - {Add} Create Job Entity `/src/Entity/Job.php`

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CandidateController!{% endblock %}
+
+{% block body %}
+    <div>
+        {{ form_start(form) }}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+
+        {{ form_label(form.age) }}
+        {{ form_widget(form.age) }}
+
+        {{ form_label(form.picture) }}
+        {{ form_widget(form.picture) }}
+
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+    </div>
+    <button type="submit">Enregistrer</button>
+  {{ form_end(form) }}
+{% endblock %}
