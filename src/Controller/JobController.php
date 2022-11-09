@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Job;
+use App\Form\Type\JobType;
 use App\Repository\JobRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +20,7 @@ class JobController extends AbstractController
 		]);
 	}
 
-	#[Route('/jobs/new', name: 'new_job', methods: 'POST')]
+	#[Route('/jobs/new', name: 'new_job', methods: 'GET')]
 	public function createOneJob(Request $request, JobRepository $jobRepository): Response
 	{
 		$job = new Job();
@@ -33,14 +34,6 @@ class JobController extends AbstractController
 
 		return $this->renderForm('job/job.html.twig', [
 			'form' => $form,
-		]);
-	}
-
-	#[Route('/jobs/{id}', name: 'one_job', methods: 'GET')]
-	public function getOneJob(string $id = null): Response
-	{
-		return $this->render('job/index.html.twig', [
-			'controller_name' => 'JobController',
 		]);
 	}
 }
