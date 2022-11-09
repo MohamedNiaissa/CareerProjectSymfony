@@ -44,3 +44,6 @@ Implement Skill entity
 
 # v.0.0.7
 - {Update} `./docker-compose.yml` to mysql configuration
+
+# v.0.0.9
+- can get the data of a company from the db
