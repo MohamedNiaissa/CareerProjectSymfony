@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 class CompanyController extends AbstractController
 {
   
-    #[Route('/companies/new', name: 'company')]
+    #[Route('/companies/new', name: 'companies')]
     public function newCompany(Request $request,CompanyRepository $companyRepository): Response
     {
         // creates a company object and initializes some data for this example
@@ -25,11 +25,11 @@ class CompanyController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted( )&&$form->isValid()){
         $companyRepository->save($company, true);
-
         }
 
-        return $this->renderForm('company/company.html.twig', [
+        return $this->renderForm('company/companynew.html.twig', [
             'form' => $form,
         ]);
     }
+
 }
