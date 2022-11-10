@@ -31,12 +31,12 @@ class Company
     private Collection $jobs;
 
 	#[ORM\OneToOne(mappedBy: 'idcompany', targetEntity: User::class)]
-    private Collection $user;
+    private User $user;
 
     public function __construct()
     {
         $this->jobs = new ArrayCollection();
-        $this->user = new Collection();
+        $this->user = new User();
     }
 
     public function getId(): ?int
@@ -125,7 +125,7 @@ class Company
     /**
      * @return Collection<int, User>
      */
-    public function getUser(): Collection
+    public function getUser(): User
     {
         return $this->user;
     }

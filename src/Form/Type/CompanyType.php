@@ -17,7 +17,6 @@ class CompanyType extends AbstractType
             ->add('logo', TextType::class)
             ->add('address', TextType::class)
             ->add('category', TextType::class)
-            ->add('save', SubmitType::class)
         ;
     }
 }
