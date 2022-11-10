@@ -27,10 +27,10 @@ class Company
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'idcompany', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(mappedBy: 'company', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $jobs;
 
-	#[ORM\OneToOne(mappedBy: 'idcompany', targetEntity: User::class, cascade: ['persist', 'remove'])]
+	#[ORM\OneToOne(mappedBy: 'company', targetEntity: User::class, cascade: ['persist', 'remove'])]
     private User $user;
 
     public function __construct(User $user)
@@ -104,7 +104,7 @@ class Company
     {
         if (!$this->jobs->contains($job)) {
             $this->jobs->add($job);
-            $job->setIdcompany($this);
+            $job->setIdCompany($this);
         }
 
         return $this;
@@ -114,8 +114,8 @@ class Company
     {
         if ($this->jobs->removeElement($job)) {
             // set the owning side to null (unless already changed)
-            if ($job->getIdcompany() === $this) {
-                $job->setIdcompany(null);
+            if ($job->getIdCompany() === $this) {
+                $job->setIdCompany(null);
             }
         }
 
