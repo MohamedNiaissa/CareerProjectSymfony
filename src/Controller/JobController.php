@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class JobController extends AbstractController
 {
-	#[Route('/jobs', name: 'list', methods: 'GET')]
+	#[Route('/jobs', name: 'app_jobs_list', methods: 'GET')]
 	public function getJobsList(): Response
 	{
 		return $this->render('job/index.html.twig', [
