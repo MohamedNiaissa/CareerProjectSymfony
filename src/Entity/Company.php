@@ -27,10 +27,10 @@ class Company
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'idcompany', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(mappedBy: 'company', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $jobs;
 
-	#[ORM\OneToOne(mappedBy: 'idcompany', targetEntity: User::class, cascade: ['persist', 'remove'])]
+	#[ORM\OneToOne(mappedBy: 'company', targetEntity: User::class, cascade: ['persist', 'remove'])]
     private User $user;
 
     public function __construct(User $user)
