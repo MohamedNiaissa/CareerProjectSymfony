@@ -1,19 +1,10 @@
 ## Basic commands
 
 ```bash
-$ doctrine:migrations:current                [current] Outputs the current version.
-$ doctrine:migrations:diff                   [diff] Generate a migration by comparing your current database to your mapping information.
-$ doctrine:migrations:dump-schema            [dump-schema] Dump the schema for your database to a migration.
-$ doctrine:migrations:execute                [execute] Execute a single migration version up or down manually.
-$ doctrine:migrations:generate               [generate] Generate a blank migration class.
-$ doctrine:migrations:latest                 [latest] Outputs the latest version number
-$ doctrine:migrations:migrate                [migrate] Execute a migration to a specified version or the latest available version.
-$ doctrine:migrations:rollup                 [rollup] Roll migrations up by deleting all tracked versions and inserting the one version that exists.
-$ doctrine:migrations:status                 [status] View the status of a set of migrations.
-$ doctrine:migrations:up-to-date             [up-to-date] Tells you if your schema is up-to-date.
-$ doctrine:migrations:version                [version] Manually add and delete migration versions from the version table.
-$ doctrine:migrations:sync-metadata-storage  [sync-metadata-storage] Ensures that the metadata storage is at the latest version.
-$ doctrine:migrations:list                   [list-migrations] Display a list of all available migrations and their status.
+$ symfony console d:d:c #Create the database, load DATABASE_URL from .env.local
+$ symfony console make:migration #Sync database with the project entities -> Create new migrations version
+$ symfony console d:mi:mi #Execute migrations and update table in database
+$ sumfony console d:mi:di 
 ```
 
 ## Validation
