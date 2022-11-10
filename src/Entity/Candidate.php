@@ -28,7 +28,7 @@ class Candidate
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
-    #[ORM\OneToOne(mappedBy: 'idcandidate', targetEntity: User::class)]
+    #[ORM\OneToOne(mappedBy: 'candidate', targetEntity: User::class)]
     private User $user;
 
     public function __construct(User $user)

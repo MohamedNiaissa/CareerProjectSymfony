@@ -16,7 +16,7 @@ class Job
 
     #[ORM\ManyToOne(inversedBy: 'jobs', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Company $idcompany = null;
+    private ?Company $company = null;
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
@@ -29,14 +29,14 @@ class Job
         return $this->id;
     }
 
-    public function getIdcompany(): ?Company
+    public function getCompany(): ?Company
     {
-        return $this->idcompany;
+        return $this->company;
     }
 
-    public function setIdcompany(?Company $idcompany): self
+    public function setCompany(?Company $company): self
     {
-        $this->idcompany = $idcompany;
+        $this->company = $company;
 
         return $this;
     }

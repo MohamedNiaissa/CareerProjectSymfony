@@ -25,16 +25,15 @@ class JobController extends AbstractController
 		]);
 	}
 
-	#[Route('/jobs/new', name: 'new_job', methods: 'GET')]
+	#[Route('/jobs/new', name: 'new_job')]
 	public function createOneJob(Request $request, JobRepository $jobRepository): Response
 	{
 		$job = new Job();
 		$form = $this->createForm(JobType::class, $job);
-
-		$form->handleRequest($request);
+        $form->handleRequest($request);
 		if ($form->isSubmitted( ) && $form->isValid()) {
-			// $jobRepository->save($job, true);
-		}
+			 $jobRepository->save($job, true);
+        }
 
 		return $this->renderForm('job/job.html.twig', [
 			'form' => $form,
