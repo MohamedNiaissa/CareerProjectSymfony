@@ -19,9 +19,9 @@ class SkillFixtures extends Fixture
 
 	public function load(ObjectManager $manager): void
 	{
-		for ($i=1; $i <= 50; $i++) { 
+		for ($i=1; $i <= 10; $i++) { 
 			$skill = new Skill();
-			$skill->setName($this->faker->sentence(5));
+			$skill->setName($this->faker->sentence(1));
 			$manager->persist($skill);
 		}
 		$manager->flush();

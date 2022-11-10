@@ -31,9 +31,9 @@ class Candidate
     #[ORM\OneToOne(mappedBy: 'idcandidate', targetEntity: User::class)]
     private User $user;
 
-    public function __construct()
+    public function __construct(User $user)
     {
-        $this->user = new User();
+        $this->user = $user;
     }
 
     public function getId(): ?int

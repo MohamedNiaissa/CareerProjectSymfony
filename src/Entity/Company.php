@@ -27,16 +27,16 @@ class Company
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $category = null;
 
-    #[ORM\OneToMany(mappedBy: 'idcompany', targetEntity: Job::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'idcompany', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $jobs;
 
-	#[ORM\OneToOne(mappedBy: 'idcompany', targetEntity: User::class)]
+	#[ORM\OneToOne(mappedBy: 'idcompany', targetEntity: User::class, cascade: ['persist', 'remove'])]
     private User $user;
 
-    public function __construct()
+    public function __construct(User $user)
     {
         $this->jobs = new ArrayCollection();
-        $this->user = new User();
+        $this->user = $user;
     }
 
     public function getId(): ?int
