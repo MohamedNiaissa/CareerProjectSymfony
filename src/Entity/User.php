@@ -30,10 +30,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 	private ?string $password = null;
 
 	#[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
-	private ?Company $idcompany = null;
+	private ?Company $company = null;
 
 	#[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
-	private ?Candidate $idcandidate = null; 
+	private ?Candidate $candidate = null; 
 
 	public function getId(): ?int
 	{
@@ -105,27 +105,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 		// $this->plainPassword = null;
 	}
 
-	public function getIdcompany(): ?Company
+	public function getCompany(): ?Company
 	{
-		return $this->idcompany;
+		return $this->company;
 	}
 
-	public function setIdcompany(?Company $idcompany): self
+	public function setCompany(?Company $company): self
 	{
-		$this->idcompany = $idcompany;
+		$this->company = $company;
 	
 		return $this;
 	}
 
-	public function getIdcandidate(): ?Candidate
+	public function getCandidate(): ?Candidate
 	{
-		return $this->idcandidate;
+		return $this->candidate;
 	}
 
-	public function setIdcandidate(?Candidate $idcandidate): self
+	public function setCandidate(?Candidate $candidate): self
 	{
-		$this->idcandidate = $idcandidate;
+		$this->candidate = $candidate;
 	
+		return $this;
+	}
+
+	public function getUser(): User
+	{
 		return $this;
 	}
 }

@@ -14,7 +14,7 @@ class Job
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'jobs')]
+    #[ORM\ManyToOne(inversedBy: 'jobs', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Company $idcompany = null;
 
