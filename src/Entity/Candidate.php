@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\User;
 use App\Repository\CandidateRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\Common\Collections\Collection;
@@ -28,11 +29,11 @@ class Candidate
     private ?string $email = null;
 
     #[ORM\OneToOne(mappedBy: 'idcandidate', targetEntity: User::class)]
-    private Collection $user;
+    private User $user;
 
     public function __construct()
     {
-        $this->user = new Collection();
+        $this->user = new User();
     }
 
     public function getId(): ?int
@@ -91,7 +92,7 @@ class Candidate
     /**
      * @return Collection<int, User>
      */
-    public function getUser(): Collection
+    public function getUser(): User
     {
         return $this->user;
     }

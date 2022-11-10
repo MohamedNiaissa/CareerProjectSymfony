@@ -71,7 +71,7 @@ class LoginAuthAuthenticator extends AbstractAuthenticator implements Authentica
 	public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
 	{
 		return new RedirectResponse(
-			$this->router->generate('app_jobs_list')
+			$this->router->generate('app_home')
 		);
 	}
 
