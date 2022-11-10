@@ -8,6 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Faker\Generator;
 use App\Entity\Candidate;
+use App\Entity\User;
 
 class CandidateFixtures extends Fixture
 {
@@ -20,14 +21,14 @@ class CandidateFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        for ($i=1; $i <= 50; $i++) {
-            $candidates = new Candidate();
+        for ($i=1; $i <= 10; $i++) {
+            // $candidates = new Candidate(new User());
 
-            $candidates->setName($this->faker->name());
-            $candidates->SetAge($this->faker->randomDigit());
-            $candidates->SetPicture($this->faker->sentence(1));
-            $candidates->SetEmail($this->faker->email());
-            $manager->persist($candidates);
+            // $candidates->setName($this->faker->name());
+            // $candidates->SetAge($this->faker->randomDigit());
+            // $candidates->SetPicture($this->faker->sentence(1));
+            // $candidates->SetEmail($this->faker->email());
+            // $manager->persist($candidates);
         }
         $manager->flush();
     }
