@@ -30,10 +30,11 @@ class JobController extends AbstractController
 	{
 		$job = new Job();
 		$form = $this->createForm(JobType::class, $job);
-        $form->handleRequest($request);
+		$form->handleRequest($request);
 		if ($form->isSubmitted( ) && $form->isValid()) {
-			 $jobRepository->save($job, true);
-        }
+			$job->setStatus("unmatched");
+			$jobRepository->save($job, true);
+		}
 
 		return $this->renderForm('job/job.html.twig', [
 			'form' => $form,

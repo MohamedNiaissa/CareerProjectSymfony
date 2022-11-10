@@ -1,6 +1,7 @@
 <?php
 namespace App\Command;
 
+use App\Service\JobManager;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,8 +13,7 @@ class CreateJobsCommand extends Command
 {
 	private $jobsManager;
 
-	// Remove 'object' and '= null' once the jobs service is created
-	public function __construct(/* SERVICE */ object $jobsManager = null)
+	public function __construct(JobManager $jobsManager = null)
 	{
 		$this->jobsManager = $jobsManager;
 		parent::__construct();
@@ -42,21 +42,33 @@ class CreateJobsCommand extends Command
 			return Command::INVALID;
 		}
 
-		$output->writeln(['Generating list of ' . $param . ' jobs :', '***********************************']);
+		$output->writeln('');
+		$output->writeln(['Generating list of ' . $param . ' jobs :']);
+		$output->writeln('');
 
 		if($param === "unmatched") {
-			//! Uncomment once created
-			// $unmatched = $this->jobsManager->retrieveUnmatched();
+			$unmatched = $this->jobsManager->retrieveUnmatched();
 
-			for($x = 0; $x <= 1 /* count($unmatched) */; $x++) {
-				$output->writeln("item, format, status..");
+			if((count($unmatched)) >= 1) {
+				$output->writeln('-------------------');
+				for($x = 0; $x <= count($unmatched) - 1; $x++) {
+					$output->writeln($unmatched[$x]);
+					$output->writeln('-------------------');
+				}
+			} else {
+				$output->writeln('NO DATA FOUND');
 			}
 		} else {
-			//! Uncomment once created
-			// $pending = $this->jobsManager->retrievePending();
+			$pending = $this->jobsManager->retrievePending();
 
-			for($x = 0; $x <= 1 /* count($pending) */; $x++) {
-				$output->writeln("item, format, status..");
+			if((count($pending)) >= 1) {
+				$output->writeln('-------------------');
+				for($x = 0; $x <= count($pending) - 1; $x++) {
+					$output->writeln($pending[$x]);
+					$output->writeln('-------------------');
+				}
+			} else {
+				$output->writeln('NO DATA FOUND');
 			}
 		}
 		
