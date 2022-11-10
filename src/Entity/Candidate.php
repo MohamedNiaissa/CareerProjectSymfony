@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Entity\User;
 use App\Repository\CandidateRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -31,9 +32,13 @@ class Candidate
     #[ORM\OneToOne(mappedBy: 'candidate', targetEntity: User::class)]
     private User $user;
 
+    #[ORM\OneToMany(mappedBy: 'candidate_id', targetEntity: CandidateSkill::class)]
+    private Collection $candidateSkills;
+
     public function __construct(User $user)
     {
         $this->user = $user;
+        $this->candidateSkills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -95,5 +100,35 @@ class Candidate
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    /**
+     * @return Collection<int, CandidateSkill>
+     */
+    public function getCandidateSkills(): Collection
+    {
+        return $this->candidateSkills;
+    }
+
+    public function addCandidateSkill(CandidateSkill $candidateSkill): self
+    {
+        if (!$this->candidateSkills->contains($candidateSkill)) {
+            $this->candidateSkills->add($candidateSkill);
+            $candidateSkill->setCandidateId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidateSkill(CandidateSkill $candidateSkill): self
+    {
+        if ($this->candidateSkills->removeElement($candidateSkill)) {
+            // set the owning side to null (unless already changed)
+            if ($candidateSkill->getCandidateId() === $this) {
+                $candidateSkill->setCandidateId(null);
+            }
+        }
+
+        return $this;
     }
 }

@@ -11,42 +11,46 @@ use Doctrine\ORM\Mapping as ORM;
 class Skill
 {
 	#[ORM\Id]
-                        	#[ORM\GeneratedValue]
-                        	#[ORM\Column]
-                        	private ?int $id = null;
+                                       	#[ORM\GeneratedValue]
+                                       	#[ORM\Column]
+                                       	private ?int $id = null;
 
 	#[ORM\Column(length: 255)]
-                        	private ?string $name = null;
+                                       	private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'skill_id', targetEntity: SkillJob::class)]
     private Collection $skillJobs;
 
+    #[ORM\OneToMany(mappedBy: 'skill_id', targetEntity: CandidateSkill::class)]
+    private Collection $candidateSkills;
+
     public function __construct()
     {
         $this->skillJobs = new ArrayCollection();
+        $this->candidateSkills = new ArrayCollection();
     }
 
 	public function getId(): ?int
-                        	{
-                        		return $this->id;
-                        	}
+                                       	{
+                                       		return $this->id;
+                                       	}
 
 	public function getName(): ?string
-                        	{
-                        		return $this->name;
-                        	}
+                                       	{
+                                       		return $this->name;
+                                       	}
 
 	public function setName(string $name): self
-                        	{
-                        		$this->name = $name;
-                        
-                        		return $this;
-                        	}
+                                       	{
+                                       		$this->name = $name;
+                                       
+                                       		return $this;
+                                       	}
 
 	public function __toString()
-                        	{
-                        		return $this->name;
-                        	}
+                                       	{
+                                       		return $this->name;
+                                       	}
 
     /**
      * @return Collection<int, SkillJob>
@@ -72,6 +76,36 @@ class Skill
             // set the owning side to null (unless already changed)
             if ($skillJob->getSkillId() === $this) {
                 $skillJob->setSkillId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CandidateSkill>
+     */
+    public function getCandidateSkills(): Collection
+    {
+        return $this->candidateSkills;
+    }
+
+    public function addCandidateSkill(CandidateSkill $candidateSkill): self
+    {
+        if (!$this->candidateSkills->contains($candidateSkill)) {
+            $this->candidateSkills->add($candidateSkill);
+            $candidateSkill->setSkillId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCandidateSkill(CandidateSkill $candidateSkill): self
+    {
+        if ($this->candidateSkills->removeElement($candidateSkill)) {
+            // set the owning side to null (unless already changed)
+            if ($candidateSkill->getSkillId() === $this) {
+                $candidateSkill->setSkillId(null);
             }
         }
 
