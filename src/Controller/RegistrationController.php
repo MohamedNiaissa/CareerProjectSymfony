@@ -13,9 +13,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegistrationController extends AbstractController
 {
+	#[Route ('/', name: 'app_home')]
+	public function home(): Response
+	{
+		return $this->render('home/home.html.twig');
+	}
+
 	#[Route('/register', name: 'app_register')]
 	public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
 	{
+		if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+			throw $this->createAccessDeniedException('Requested ressource not found');
+		}
+
 		$user = new User();
 		$form = $this->createForm(RegistrationFormType::class, $user);
 		$form->handleRequest($request);
