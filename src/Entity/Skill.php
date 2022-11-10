@@ -11,7 +11,7 @@ class Skill
 	#[ORM\Id]
 	#[ORM\GeneratedValue]
 	#[ORM\Column]
-	private ?int $idskill = null;
+	private ?int $id = null;
 
 	#[ORM\Column(length: 255)]
 	private ?string $name = null;
@@ -19,18 +19,6 @@ class Skill
 	public function getId(): ?int
 	{
 		return $this->id;
-	}
-
-	public function getIdskill(): ?int
-	{
-		return $this->idskill;
-	}
-
-	public function setIdskill(int $idskill): self
-	{
-		$this->idskill = $idskill;
-
-		return $this;
 	}
 
 	public function getName(): ?string
@@ -43,5 +31,10 @@ class Skill
 		$this->name = $name;
 
 		return $this;
+	}
+
+	public function __toString()
+	{
+		return $this->name;
 	}
 }

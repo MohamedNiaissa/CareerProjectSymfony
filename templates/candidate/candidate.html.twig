@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create candidate profile{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div class="login-form bg-light mt-4 p-4">
+			<form method="post" class="row g-3">
+				{{ form_start(form) }}
+					<h1 class="h3 mb-3 font-weight-normal">Create candidate profile</h1>
+
+					{{ form_row(form.name, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.age, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.picture, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.email, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.skills, {
+						'attr': {'class': 'form-select'}
+					}) }}
+
+					<div class="col-12">
+						<button class="btn btn-lg btn-primary float-end" type="submit">
+							Enregistrer
+						</button>
+					</div>
+				{{ form_end(form) }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

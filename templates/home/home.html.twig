@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{%block body%}
+<div style="display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 2rem;">
+	<div>
+		<h2>Welcome to Career.io !</h2>
+		<h4 style="text-align: center;">lorem ipsum</h4>
+	</div>
+	<div>
+		<p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+		<p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+		<p>lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum</p>
+	</div>
+
+	{% if is_granted('IS_AUTHENTICATED_REMEMBERED') == false %}
+		<div style="display: flex; gap: 3rem;">
+			<a class="button red" aria-current="page" href="{{ path('app_login') }}">Login</a>
+			<a class="button blue" aria-current="page" href="{{ path('app_register') }}">Register</a>
+		</div>
+	{% endif %}
+</div>
+{%endblock%}

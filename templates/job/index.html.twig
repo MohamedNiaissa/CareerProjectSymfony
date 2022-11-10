@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{%block body%}
+<div class="container" style="width: 100%">
+	<div class="row" style="width: 100%">
+		<div class="col-md-12" style="width: 100%">
+			<h1>List of the jobs</h1>
+			<table class="table">
+				{% if "ROLE_COMPANY" in app.user.roles %}
+				<div>
+					<a class="btn btn-primary" aria-current="page" href="{{ path('new_job') }}">Create job</a>
+				</div>
+				{% endif %}
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Company</th>
+						<th>Description</th>
+						{% if "ROLE_CANDIDATE" in app.user.roles %}
+							<th>Actions</th>
+						{% endif %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for job in jobs %}
+					<tr>
+						<td>{{ job.title }}</td>
+						<td>{{ job.company }}</td>
+						<td>{{ job.description }}</td>
+						{% if "ROLE_CANDIDATE" in app.user.roles %}
+							<td>
+								<div>
+									<a class="btn btn-primary" aria-current="page" href="{{ path('accept_job') }}">Postulate</a>
+								</div>
+							</td>
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+{%endblock%}

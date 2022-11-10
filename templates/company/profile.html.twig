@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create candidate profile{% endblock %}
+
+{% block body %}
+<div class="container">
+	<div class="row">
+		<div>
+			<a class="btn btn-primary" aria-current="page" href="{{ path('app_company') }}">Company profile</a>
+			<a class="btn btn-primary" aria-current="page" href="{{ path('app_company_jobs') }}">Pending jobs list</a>
+		</div>
+		<div class="login-form bg-light mt-4 p-4">
+			<form method="post" class="row g-3">
+				{{ form_start(form) }}
+					<h1 class="h3 mb-3 font-weight-normal">Create company profile</h1>
+
+					{{ form_row(form.name, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.logo, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.address, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					{{ form_row(form.category, {
+						'attr': {'class': 'form-control'}
+					}) }}
+
+					<div class="col-12">
+						<button class="btn btn-lg btn-primary float-end" type="submit">
+							Enregistrer
+						</button>
+					</div>
+				{{ form_end(form) }}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

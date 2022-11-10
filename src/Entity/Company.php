@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CompanyRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CompanyRepository::class)]
@@ -24,6 +26,18 @@ class Company
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $category = null;
+
+    #[ORM\OneToMany(mappedBy: 'company', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
+    private Collection $jobs;
+
+	#[ORM\OneToOne(mappedBy: 'company', targetEntity: User::class, cascade: ['persist', 'remove'])]
+    private User $user;
+
+    public function __construct(User $user)
+    {
+        $this->jobs = new ArrayCollection();
+        $this->user = $user;
+    }
 
     public function getId(): ?int
     {
@@ -77,4 +91,47 @@ class Company
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Job>
+     */
+    public function getJobs(): Collection
+    {
+        return $this->jobs;
+    }
+
+    public function addJob(Job $job): self
+    {
+        if (!$this->jobs->contains($job)) {
+            $this->jobs->add($job);
+            $job->setCompany($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJob(Job $job): self
+    {
+        if ($this->jobs->removeElement($job)) {
+            // set the owning side to null (unless already changed)
+            if ($job->getCompany() === $this) {
+                $job->setCompany(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+	public function __toString()
+	{
+		return $this->id;
+	}
 }
