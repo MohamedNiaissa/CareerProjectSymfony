@@ -13,13 +13,13 @@
 
 					{% if "ROLE_CANDIDATE" in app.user.roles %}
 						<li class="nav-item">
-							<a class="nav-link active end" aria-current="page" href="{{ path('app_candidate') }}">Profile</a>
+							<a class="nav-link active end" aria-current="page" href="{{ path('app_candidate') }}">Candidate Space</a>
 						</li>
 					{% endif %}
 
 					{% if "ROLE_COMPANY" in app.user.roles %}
 						<li class="nav-item">
-							<a class="nav-link active end" aria-current="page" href="{{ path('app_company') }}">Profile</a>
+							<a class="nav-link active end" aria-current="page" href="{{ path('app_company') }}">Company Space</a>
 						</li>
 					{% endif %}
 
