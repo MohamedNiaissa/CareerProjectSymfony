@@ -26,7 +26,7 @@ class CandidateController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->render('Candidate/candidate.html.twig', [
+        return $this->render('candidate/candidate.html.twig', [
             'controller_name' => 'CandidateController',
             'form' => $form->createView()
         ]);
