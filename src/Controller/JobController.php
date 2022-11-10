@@ -15,10 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class JobController extends AbstractController
 {
 	#[Route('/jobs', name: 'app_jobs_list', methods: 'GET')]
-	public function getJobsList(): Response
+	public function getJobsList(JobRepository $jobRepository): Response
 	{
+		$allJobs = $jobRepository->findAll();
+
 		return $this->render('job/index.html.twig', [
 			'controller_name' => 'JobController',
+			'jobs' => $allJobs,
 		]);
 	}
 
