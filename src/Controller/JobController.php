@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Job;
+use App\Entity\SkillJob;
 use App\Form\Type\JobType;
+use App\Form\Type\SkillJobType;
 use App\Repository\JobRepository;
+use App\Repository\SkillJobRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,12 +29,14 @@ class JobController extends AbstractController
 	}
 
 	#[Route('/jobs/new', name: 'new_job')]
-	public function createOneJob(Request $request, JobRepository $jobRepository): Response
+	public function createOneJob(Request $request, JobRepository $jobRepository, SkillJobRepository $skillJobRepository): Response
 	{
 		$job = new Job();
 		$form = $this->createForm(JobType::class, $job);
+
+
         $form->handleRequest($request);
-		if ($form->isSubmitted( ) && $form->isValid()) {
+        if ($form->isSubmitted( ) && $form->isValid()) {
 			 $jobRepository->save($job, true);
         }
 
@@ -39,4 +44,10 @@ class JobController extends AbstractController
 			'form' => $form,
 		]);
 	}
+
+    #[Route('/jobs/accept', name: 'accept_job')]
+    public function jobAccept(Request $request, JobRepository $jobRepository): Response
+    {
+        return $this->render("<div> Test accept</div>");
+    }
 }

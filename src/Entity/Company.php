@@ -30,7 +30,7 @@ class Company
     #[ORM\OneToMany(mappedBy: 'company', targetEntity: Job::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $jobs;
 
-	#[ORM\OneToOne(mappedBy: 'company', targetEntity: User::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'company', targetEntity: User::class, cascade: ['persist', 'remove'])]
     private User $user;
 
     public function __construct(User $user)
@@ -128,5 +128,10 @@ class Company
     public function getUser(): User
     {
         return $this->user;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }
