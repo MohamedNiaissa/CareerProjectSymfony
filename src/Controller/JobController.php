@@ -6,6 +6,9 @@ use App\Entity\Job;
 use App\Entity\SkillJob;
 use App\Form\Type\JobType;
 use App\Form\Type\SkillJobType;
+use App\Repository\CandidateRepository;
+use App\Repository\CandidateSkillRepository;
+use App\Repository\CompanyRepository;
 use App\Repository\JobRepository;
 use App\Repository\SkillJobRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -49,5 +52,27 @@ class JobController extends AbstractController
     public function jobAccept(Request $request, JobRepository $jobRepository): Response
     {
         return $this->render("<div> Test accept</div>");
+    }
+
+    #[Route('/jobs/match/{id}', name: 'accept_job')]
+    public function jobMatches(Request $request, JobRepository $jobRepository, CandidateRepository $candidateRepository,CompanyRepository $companyRepository,
+                               SkillJobRepository $skillJobRepository ,CandidateSkillRepository $candidateSkillRepository ,int $id): Response
+    {
+        $candidate = $candidateSkillRepository->find($id);
+        $alljobs = $jobRepository->findAll();
+        $candidatskills = $candidateSkillRepository->findAll();
+        $skillJobRepository = $skillJobRepository->findAll();
+        $allCompanies = $companyRepository->findAll();
+
+        return $this->render('match/match.html.twig', [
+            // 'jobs' => $allJobs,
+            "idCandidat" => $candidate->getId(),
+            "jobs" => $alljobs,
+            "skillCandidats" => $candidatskills,
+            "skillJobs" => $skillJobRepository,
+            "companies" => $allCompanies
+
+
+        ]);
     }
 }

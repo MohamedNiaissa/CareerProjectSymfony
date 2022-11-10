@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{%block body%}
+    {{ idCandidat }}
+
+    {% for job in jobs %}
+        {% for skillCandidat in skillCandidats %}
+            {% for skillJob in skillJobs %}
+                {% if  idCandidat == skillCandidat.id and skillCandidat.skillId == skillJob.skillId %}
+                    {% for companie in companies %}
+                        {% if  companie.id() == job.companie %}
+                            {{ job.title }}
+                            {{companie.name }}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+            {% endfor %}
+
+
+        {% endfor %}
+    {% endfor %}
+
+
+{%endblock%}
+
