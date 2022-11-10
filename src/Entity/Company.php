@@ -104,7 +104,7 @@ class Company
     {
         if (!$this->jobs->contains($job)) {
             $this->jobs->add($job);
-            $job->setIdcompany($this);
+            $job->setCompany($this);
         }
 
         return $this;
@@ -114,8 +114,8 @@ class Company
     {
         if ($this->jobs->removeElement($job)) {
             // set the owning side to null (unless already changed)
-            if ($job->getIdcompany() === $this) {
-                $job->setIdcompany(null);
+            if ($job->getCompany() === $this) {
+                $job->setCompany(null);
             }
         }
 
